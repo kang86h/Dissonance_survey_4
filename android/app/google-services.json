@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "725989750669",
+    "project_id": "dissonance-survey-4",
+    "storage_bucket": "dissonance-survey-4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725989750669:android:370fb7c9e361f97d0cefc4",
+        "android_client_info": {
+          "package_name": "com.example.dissonance_survey_4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725989750669-4fh3r2jl9vv5hltpnjv7k92ql6l2cbd0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQIitVWHd7YdkBhgxxvgt-dW9CcLIHbBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725989750669-4fh3r2jl9vv5hltpnjv7k92ql6l2cbd0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "725989750669-1lvfnjfmam2ml3odovennpvslr0elp15.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dissonanceSurvey4"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
