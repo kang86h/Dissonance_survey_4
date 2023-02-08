@@ -214,7 +214,8 @@ class MainPageController extends GetController<MainPageModel> {
       'createdAt': DateTime.now(),
     });
 
-    html.window.open('https://naver.com', '_self');
+    Get.toNamed('/complete');
+    //html.window.open('https://naver.com', '_self');
   }
 
   void onChangedScore(QuestionType questionType, int index, double value) {

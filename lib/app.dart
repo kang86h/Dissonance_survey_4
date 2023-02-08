@@ -1,3 +1,4 @@
+import 'package:dissonance_survey_4/complete/complete_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ class App extends StatelessWidget {
       getPages: [
         GetPage(name: '/main', page: () => MainPage(), binding: MainPageBinding()),
         GetPage(name: '/admin', page: () => AdminPage(), binding: AdminPageBinding()),
+        GetPage(name: '/complete', page: () => CompletePage()),
       ],
     );
   }
