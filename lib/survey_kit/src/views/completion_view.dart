@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../survey_kit.dart';
 
@@ -21,18 +20,26 @@ class CompletionView extends StatelessWidget {
       ),
       title: Text(completionStep.title,
           style: Theme.of(context).textTheme.headline2),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 64.0),
-        child: Column(
-          children: [
-            Text(
-              completionStep.text,
-              style: Theme.of(context).textTheme.bodyText2,
-              textAlign: TextAlign.center,
+      child: (() {
+        final Widget sizedBox = completionStep.content;
+        if (sizedBox is SizedBox &&
+            sizedBox.height == 0.0 &&
+            sizedBox.width == 0.0) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 64.0),
+            child: Column(
+              children: [
+                Text(
+                  completionStep.text,
+                  style: Theme.of(context).textTheme.bodyText2,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          );
+        }
+        return completionStep.content;
+      })(),
     );
   }
 }

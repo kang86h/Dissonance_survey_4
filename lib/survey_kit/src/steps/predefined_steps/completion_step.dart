@@ -10,6 +10,7 @@ class CompletionStep extends Step {
   final String title;
   final String text;
   final String assetPath;
+  final Widget content;
 
   CompletionStep({
     bool isOptional = false,
@@ -18,7 +19,8 @@ class CompletionStep extends Step {
     bool showAppBar = true,
     required this.title,
     required this.text,
-    this.assetPath = ""
+    this.assetPath = "",
+    this.content = const SizedBox.shrink(),
   }) : super(
           stepIdentifier: stepIdentifier,
           isOptional: isOptional,
@@ -33,9 +35,11 @@ class CompletionStep extends Step {
 
   factory CompletionStep.fromJson(Map<String, dynamic> json) =>
       _$CompletionStepFromJson(json);
+
   Map<String, dynamic> toJson() => _$CompletionStepToJson(this);
 
   bool operator ==(o) =>
       super == (o) && o is CompletionStep && o.title == title && o.text == text;
+
   int get hashCode => super.hashCode ^ title.hashCode ^ text.hashCode;
 }

@@ -7,11 +7,13 @@ part 'text_choice.g.dart';
 class TextChoice {
   final String text;
   String value;
+  final Widget child;
   final TextEditingController? controller;
 
   TextChoice({
     required this.text,
     required this.value,
+    this.child = const SizedBox.shrink(),
     this.controller,
   }) : super();
 

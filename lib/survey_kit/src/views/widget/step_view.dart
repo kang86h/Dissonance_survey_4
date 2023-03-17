@@ -11,14 +11,12 @@ class StepView extends StatelessWidget {
   final QuestionResult Function() resultFunction;
   final bool isValid;
   final SurveyController? controller;
-  final TextEditingController? textEditingController;
 
   const StepView({
     required this.step,
     required this.child,
     required this.title,
     required this.resultFunction,
-    this.textEditingController,
     this.controller,
     this.isValid = true,
   });

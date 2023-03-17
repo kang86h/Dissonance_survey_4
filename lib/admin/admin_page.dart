@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:dissonance_survey_4/admin/admin_page_controller.dart';
-import 'package:dissonance_survey_4/admin/model/type/condition_type.dart';
-import 'package:dissonance_survey_4/admin/model/type/range_type.dart';
-import 'package:dissonance_survey_4/admin/model/type/result_field_type.dart';
-import 'package:dissonance_survey_4/admin/model/type/user_field_type.dart';
-import 'package:dissonance_survey_4/admin/model/type/value/user_gender_value.dart';
-import 'package:dissonance_survey_4/getx/extension.dart';
-import 'package:dissonance_survey_4/main/model/question_model.dart';
+import 'package:surveykit_example/admin/admin_page_controller.dart';
+import 'package:surveykit_example/admin/model/type/condition_type.dart';
+import 'package:surveykit_example/admin/model/type/range_type.dart';
+import 'package:surveykit_example/admin/model/type/result_field_type.dart';
+import 'package:surveykit_example/admin/model/type/user_field_type.dart';
+import 'package:surveykit_example/admin/model/type/value/user_gender_value.dart';
+import 'package:surveykit_example/getx/extension.dart';
+import 'package:surveykit_example/main/model/question_model.dart';
 import '../getx/get_rx_impl.dart';
 
 class AdminPage extends GetView<AdminPageController> {
@@ -278,7 +278,7 @@ class AdminPage extends GetView<AdminPageController> {
                                     ...UserFieldType.values
                                         .where((x) => !data.keys.contains(x.name) && x.name != 'id')
                                         .map((x) => MapEntry(x.name, '')),
-                                    ...data.entries,
+                                    ...data.entries.where((x) => UserFieldType.values.map((y) => y.name).contains(x.key)),
                                   ].sorted((a, b) => getUserFieldIndex(name: a.key).compareTo(getUserFieldIndex(name: b.key)));
 
                                   return TableRow(

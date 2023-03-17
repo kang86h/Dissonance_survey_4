@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dissonance_survey_4/getx/extension.dart';
+import 'package:surveykit_example/getx/extension.dart';
 
 import '../../survey_kit.dart';
 

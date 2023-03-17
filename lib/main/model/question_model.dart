@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:dissonance_survey_4/getx/extension.dart';
+import 'package:surveykit_example/getx/extension.dart';
 
 import '../../getx/get_model.dart';
 
@@ -9,12 +9,14 @@ class QuestionModel extends GetModel {
     required this.id,
     required this.file,
     required this.score,
-    required this.isSkip,
     required this.maxSliderScore,
     required this.maxTextScore,
     required this.volumes,
     required this.isAutoPlay,
     required this.isRecord,
+    required this.isWarmUpCheck,
+    required this.isMiddleCheck,
+    required this.isFinalCheck,
     required this.startedAt,
     required this.endedAt,
     required this.totalMilliseconds,
@@ -24,12 +26,14 @@ class QuestionModel extends GetModel {
   final int id;
   final String file;
   final double score;
-  final bool isSkip;
   final double maxSliderScore;
   final double maxTextScore;
   final Iterable<double> volumes;
   final bool isAutoPlay;
   final bool isRecord;
+  final bool isWarmUpCheck;
+  final bool isMiddleCheck;
+  final bool isFinalCheck;
   final Iterable<DateTime> startedAt;
   final Iterable<DateTime> endedAt;
   final int totalMilliseconds;
@@ -39,9 +43,8 @@ class QuestionModel extends GetModel {
 
   int get getTotalMilliseconds {
     final length = min(startedAt.length, endedAt.length);
-    final total = Iterable.generate(length,
-            (i) => endedAt.elementAt(i).difference(startedAt.elementAt(i)))
-        .fold<Duration>(Duration.zero, (a, c) => a + c);
+    final total =
+        Iterable.generate(length, (i) => endedAt.elementAt(i).difference(startedAt.elementAt(i))).fold<Duration>(Duration.zero, (a, c) => a + c);
     return total.inMilliseconds;
   }
 
@@ -49,12 +52,14 @@ class QuestionModel extends GetModel {
     id: 0,
     file: '',
     score: 0,
-    isSkip: false,
     maxSliderScore: 0,
     maxTextScore: 0,
     volumes: const [],
     isAutoPlay: false,
     isRecord: false,
+    isWarmUpCheck: false,
+    isMiddleCheck: false,
+    isFinalCheck: false,
     startedAt: const [],
     endedAt: const [],
     totalMilliseconds: 0,
@@ -79,20 +84,21 @@ class QuestionModel extends GetModel {
   @override
   bool get isEmpty => this == _empty;
 
-  String get header =>
-      file.split('/').lastOrNull.elvis.split('.').firstOrNull.elvis;
+  String get header => file.split('/').lastOrNull.elvis.split('.').firstOrNull.elvis;
 
   @override
   QuestionModel copyWith({
     int? id,
     String? file,
     double? score,
-    bool? isSkip,
     double? maxSliderScore,
     double? maxTextScore,
     Iterable<double>? volumes,
     bool? isAutoPlay,
     bool? isRecord,
+    bool? isWarmUpCheck,
+    bool? isMiddleCheck,
+    bool? isFinalCheck,
     Iterable<DateTime>? startedAt,
     Iterable<DateTime>? endedAt,
     int? totalMilliseconds,
@@ -102,12 +108,14 @@ class QuestionModel extends GetModel {
       id: id ?? this.id,
       file: file ?? this.file,
       score: score ?? this.score,
-      isSkip: isSkip ?? this.isSkip,
       maxSliderScore: maxSliderScore ?? this.maxSliderScore,
       maxTextScore: maxTextScore ?? this.maxTextScore,
       volumes: volumes ?? this.volumes,
       isAutoPlay: isAutoPlay ?? this.isAutoPlay,
       isRecord: isRecord ?? this.isRecord,
+      isWarmUpCheck: isWarmUpCheck ?? this.isWarmUpCheck,
+      isMiddleCheck: isMiddleCheck ?? this.isMiddleCheck,
+      isFinalCheck: isFinalCheck ?? this.isFinalCheck,
       startedAt: startedAt ?? this.startedAt,
       endedAt: endedAt ?? this.endedAt,
       totalMilliseconds: totalMilliseconds ?? this.totalMilliseconds,
@@ -120,12 +128,14 @@ class QuestionModel extends GetModel {
         id,
         file,
         score,
-        isSkip,
         maxSliderScore,
         maxTextScore,
         volumes,
         isAutoPlay,
         isRecord,
+        isWarmUpCheck,
+        isMiddleCheck,
+        isFinalCheck,
         startedAt,
         endedAt,
         totalMilliseconds,
@@ -138,20 +148,23 @@ class QuestionModel extends GetModel {
         'play_count': volumes.length,
         'volumes': volumes,
         'total_milliseconds': getTotalMilliseconds,
+        'is_warmUp_check': isWarmUpCheck,
+        'is_middle_check': isMiddleCheck,
+        'is_final_check': isFinalCheck,
       };
 
   factory QuestionModel.fromJson(Map<String, dynamic> map) => _empty.copyWith(
         file: map['file'],
         score: double.tryParse(map['score'].toString()) ?? 0.0,
         volumes: [
-          ...Iterable.castFrom(map['volumes'] ?? [])
-              .map((x) => double.tryParse(x.toString()) ?? 0.0),
+          ...Iterable.castFrom(map['volumes'] ?? []).map((x) => double.tryParse(x.toString()) ?? 0.0),
         ],
-        totalMilliseconds:
-            int.tryParse(map['total_milliseconds'].toString()) ?? 0,
+        totalMilliseconds: int.tryParse(map['total_milliseconds'].toString()) ?? 0,
+        isWarmUpCheck: map['is_warmUp_check'],
+        isMiddleCheck: map['is_middle_check'],
+        isFinalCheck: map['is_final_check'],
       );
 
   @override
-  String toString() =>
-      'id: $id file: $file score: $score isSkip: $isSkip maxSliderScore: $maxSliderScore maxTextScore: $maxTextScore volumes: $volumes isAutoPlay: $isAutoPlay isRecord: $isRecord startedAt: $startedAt endedAt: $endedAt totalMilliseconds: $totalMilliseconds prequestion: $prequestion';
+  String toString() => 'id: $id file: $file score: $score isWarmUpCheck: $isWarmUpCheck isMiddleCheck: $isMiddleCheck isFinalCheck: $isFinalCheck';
 }

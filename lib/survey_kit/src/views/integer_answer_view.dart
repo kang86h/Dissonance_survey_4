@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../survey_kit.dart';
 
@@ -26,8 +27,7 @@ class _IntegerAnswerViewState extends State<IntegerAnswerView> {
   @override
   void initState() {
     super.initState();
-    _integerAnswerFormat =
-        widget.questionStep.answerFormat as IntegerAnswerFormat;
+    _integerAnswerFormat = widget.questionStep.answerFormat as IntegerAnswerFormat;
     _controller = TextEditingController();
     _controller.text = widget.result?.result?.toString() ?? '';
     _checkValidation(_controller.text);
@@ -55,9 +55,7 @@ class _IntegerAnswerViewState extends State<IntegerAnswerView> {
         startDate: _startDate,
         endDate: DateTime.now(),
         valueIdentifier: _controller.text,
-        result: int.tryParse(_controller.text) ??
-            _integerAnswerFormat.defaultValue ??
-            null,
+        result: int.tryParse(_controller.text) ?? _integerAnswerFormat.defaultValue ?? null,
       ),
       isValid: _isValid || widget.questionStep.isOptional,
       title: widget.questionStep.title.isNotEmpty
@@ -82,6 +80,9 @@ class _IntegerAnswerViewState extends State<IntegerAnswerView> {
             onChanged: (String value) {
               _checkValidation(value);
             },
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+            ],
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
           ),

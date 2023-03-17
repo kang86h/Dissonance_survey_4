@@ -55,8 +55,8 @@ class QuestionStep extends Step {
           questionStep: this,
           result: questionResult as DoubleQuestionResult?,
           controller: (answerFormat as DoubleAnswerFormat).controller,
-          isSkip: (answerFormat as DoubleAnswerFormat).isSkip,
-          isPlay: (answerFormat as DoubleAnswerFormat).isPlay,
+          color: (answerFormat as DoubleAnswerFormat).color,
+          isCheck: (answerFormat as DoubleAnswerFormat).isCheck,
         );
       case TextAnswerFormat:
         return TextAnswerView(

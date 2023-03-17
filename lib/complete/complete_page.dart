@@ -32,7 +32,7 @@ class CompletePage extends StatelessWidget {
                     '너무 일찍 설문을 마치신 경우\n'
                     '조금 기다리셔야 버튼이 나타납니다',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       color: Colors.black,
                     ),
                     textAlign: TextAlign.center,

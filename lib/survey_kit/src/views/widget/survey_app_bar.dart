@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:surveykit_example/main/main_page_controller.dart';
 
 import '../../../survey_kit.dart';
 
@@ -15,8 +16,7 @@ class SurveyAppBar extends StatelessWidget {
 
   @override
   PlatformAppBar build(BuildContext context) {
-    final _showProgress =
-        appBarConfiguration.showProgress ?? context.read<bool>();
+    final _showProgress = appBarConfiguration.showProgress ?? context.read<bool>();
     final _canGoBack = appBarConfiguration.canBack ?? true;
 
     final surveyController = controller ?? context.read<SurveyController>();
@@ -28,9 +28,11 @@ class SurveyAppBar extends StatelessWidget {
                   Icons.arrow_back,
                 ),
                 onPressed: () {
-                  surveyController.stepBack(
-                    context: context,
-                  );
+                  if (!MainPageController.disabled) {
+                    surveyController.stepBack(
+                      context: context,
+                    );
+                  }
                 },
               )
           : Container(),

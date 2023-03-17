@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:surveykit_example/getx/get_rx_impl.dart';
 
 import '../../survey_kit.dart';
 
@@ -8,6 +9,7 @@ abstract class Step {
   @JsonKey(defaultValue: false)
   final bool isOptional;
   @JsonKey(defaultValue: 'Next')
+  final RxBool? isOption;
   final String? buttonText;
   final bool canGoBack;
   final bool showProgress;
@@ -16,6 +18,7 @@ abstract class Step {
   Step({
     StepIdentifier? stepIdentifier,
     this.isOptional = false,
+    this.isOption,
     this.buttonText = 'Next',
     this.canGoBack = true,
     this.showProgress = true,
@@ -39,10 +42,7 @@ abstract class Step {
   Map<String, dynamic> toJson();
 
   bool operator ==(o) =>
-      o is Step &&
-      o.stepIdentifier == stepIdentifier &&
-      o.isOptional == isOptional &&
-      o.buttonText == buttonText;
-  int get hashCode =>
-      stepIdentifier.hashCode ^ isOptional.hashCode ^ buttonText.hashCode;
+      o is Step && o.stepIdentifier == stepIdentifier && o.isOptional == isOptional && o.isOption == o.isOption && o.buttonText == buttonText;
+
+  int get hashCode => stepIdentifier.hashCode ^ isOptional.hashCode ^ isOption.hashCode ^ buttonText.hashCode;
 }

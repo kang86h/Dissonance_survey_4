@@ -1,4 +1,4 @@
-import 'package:dissonance_survey_4/admin/model/type/condition_model.dart';
+import 'package:surveykit_example/admin/model/type/condition_model.dart';
 
 import '../getx/get_model.dart';
 

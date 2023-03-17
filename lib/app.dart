@@ -1,9 +1,9 @@
-import 'package:dissonance_survey_4/complete/complete_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dissonance_survey_4/main/main_page_binding.dart';
-import 'package:dissonance_survey_4/admin/admin_page_binding.dart';
+import 'package:surveykit_example/complete/complete_page.dart';
+import 'package:surveykit_example/main/main_page_binding.dart';
+import 'package:surveykit_example/admin/admin_page_binding.dart';
 import 'admin/admin_page.dart';
 import 'main/main_page.dart';
 
@@ -25,3 +25,11 @@ class App extends StatelessWidget {
     );
   }
 }
+
+/*
+DI(Dependency Injection)
+
+의존성 주입
+
+int index = 0;
+*/

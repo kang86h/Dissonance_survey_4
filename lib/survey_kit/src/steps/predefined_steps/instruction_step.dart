@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:surveykit_example/getx/get_rx_impl.dart';
 
 import '../../../survey_kit.dart';
 
@@ -20,7 +21,8 @@ class InstructionStep extends Step {
     required this.title,
     this.text = '',
     this.content = const SizedBox.shrink(),
-    bool isOptional = false,
+    RxBool? isOption,
+    bool isOptional = true,
     String buttonText = 'Next',
     StepIdentifier? stepIdentifier,
     bool? canGoBack,
@@ -28,6 +30,7 @@ class InstructionStep extends Step {
     bool showAppBar = true,
   }) : super(
           stepIdentifier: stepIdentifier,
+          isOption: isOption,
           isOptional: isOptional,
           buttonText: buttonText,
           canGoBack: canGoBack ?? true,
@@ -39,17 +42,15 @@ class InstructionStep extends Step {
   Widget createView({required QuestionResult? questionResult}) {
     return InstructionView(
       instructionStep: this,
+      isOption: isOption,
     );
   }
 
-  factory InstructionStep.fromJson(Map<String, dynamic> json) =>
-      _$InstructionStepFromJson(json);
+  factory InstructionStep.fromJson(Map<String, dynamic> json) => _$InstructionStepFromJson(json);
+
   Map<String, dynamic> toJson() => _$InstructionStepToJson(this);
 
-  bool operator ==(o) =>
-      super == (o) &&
-      o is InstructionStep &&
-      o.title == title &&
-      o.text == text;
+  bool operator ==(o) => super == (o) && o is InstructionStep && o.title == title && o.text == text;
+
   int get hashCode => super.hashCode ^ title.hashCode ^ text.hashCode;
 }

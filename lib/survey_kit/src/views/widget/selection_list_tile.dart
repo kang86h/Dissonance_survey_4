@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:dissonance_survey_4/survey_kit/src/views/decoration/input_decoration.dart';
+import 'package:surveykit_example/survey_kit/src/views/decoration/input_decoration.dart';
 
 class SelectionListTile extends StatelessWidget {
   final String text;
   final Function onTap;
   final bool isSelected;
   final TextEditingController? controller;
+  final Widget child;
+  final Widget icon;
 
   const SelectionListTile({
     Key? key,
@@ -13,6 +15,8 @@ class SelectionListTile extends StatelessWidget {
     required this.onTap,
     this.isSelected = false,
     this.controller,
+    this.child = const SizedBox.shrink(),
+    this.icon = const Icon(Icons.check),
   }) : super(key: key);
 
   @override
@@ -20,26 +24,42 @@ class SelectionListTile extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: ListTile(
-            contentPadding: EdgeInsets.only(left: 40),
-            title: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5?.copyWith(
-                    color: isSelected ? Theme.of(context).primaryColor : Theme.of(context).textTheme.headline5?.color,
-                  ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                        color: isSelected
+                            ? Theme.of(context).primaryColor
+                            : Theme.of(context).textTheme.headline5?.color,
+                      ),
+                ),
+                child,
+                Stack(
+                  children: [
+                    Icon(
+                      Icons.check_box_outline_blank,
+                      color: isSelected
+                          ? Theme.of(context).primaryColor
+                          : Theme.of(context).textTheme.headline5?.color,
+                      size: 40,
+                    ),
+                    Icon(
+                      Icons.check_box_outlined,
+                      color: isSelected
+                          ? Theme.of(context).primaryColor
+                          : Colors.transparent,
+                      size: 40,
+                    ),
+                  ],
+                ),
+              ],
             ),
-            trailing: isSelected
-                ? Icon(
-                    Icons.check,
-                    size: 32,
-                    color: isSelected ? Theme.of(context).primaryColor : Colors.black,
-                  )
-                : Container(
-                    width: 32,
-                    height: 32,
-                  ),
             onTap: () => onTap.call(),
           ),
         ),

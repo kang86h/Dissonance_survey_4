@@ -13,7 +13,7 @@ abstract class GetController<T extends GetModel> extends Value<T> with GetLifeCy
   @mustCallSuper
   void onInit() {
     super.onInit();
-    SchedulerBinding.instance.addPostFrameCallback((_) => onReady());
+    SchedulerBinding.instance?.addPostFrameCallback((_) => onReady());
   }
 
   @override

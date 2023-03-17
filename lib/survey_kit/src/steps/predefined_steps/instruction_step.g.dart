@@ -10,7 +10,6 @@ InstructionStep _$InstructionStepFromJson(Map<String, dynamic> json) =>
     InstructionStep(
       title: json['title'] as String,
       text: json['text'] as String,
-      isOptional: json['isOptional'] as bool? ?? false,
       buttonText: json['buttonText'] as String? ?? 'Next',
       stepIdentifier: json['stepIdentifier'] == null
           ? null
@@ -19,6 +18,7 @@ InstructionStep _$InstructionStepFromJson(Map<String, dynamic> json) =>
       canGoBack: json['canGoBack'] as bool?,
       showProgress: json['showProgress'] as bool?,
       showAppBar: json['showAppBar'] as bool? ?? true,
+      isOptional: json['isOptional'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$InstructionStepToJson(InstructionStep instance) =>
