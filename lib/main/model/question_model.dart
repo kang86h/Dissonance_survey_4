@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:surveykit_example/getx/extension.dart';
+import 'package:dissonance_survey_4/getx/extension.dart';
 
 import '../../getx/get_model.dart';
 

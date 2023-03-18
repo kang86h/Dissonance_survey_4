@@ -5,7 +5,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart' as rx;
-import 'package:surveykit_example/main/main_page.dart';
+import 'package:dissonance_survey_4/main/main_page.dart';
 import 'package:video_player/video_player.dart';
 
 import '../getx/extension.dart';

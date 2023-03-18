@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:surveykit_example/getx/get_rx_impl.dart';
+import 'package:dissonance_survey_4/getx/get_rx_impl.dart';
 
 import '../../survey_kit.dart';
 

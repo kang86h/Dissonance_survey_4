@@ -5,8 +5,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:surveykit_example/getx/extension.dart';
-import 'package:surveykit_example/main/model/question_model.dart';
+import 'package:dissonance_survey_4/getx/extension.dart';
+import 'package:dissonance_survey_4/main/model/question_model.dart';
 import 'package:video_player/video_player.dart';
 
 import '../getx/get_rx_impl.dart' hide RxBool;

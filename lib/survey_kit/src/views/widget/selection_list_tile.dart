@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:surveykit_example/survey_kit/src/views/decoration/input_decoration.dart';
+import 'package:dissonance_survey_4/survey_kit/src/views/decoration/input_decoration.dart';
 
 class SelectionListTile extends StatelessWidget {
   final String text;

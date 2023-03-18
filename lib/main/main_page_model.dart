@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:surveykit_example/main/main_page.dart';
-import 'package:surveykit_example/main/model/question_model.dart';
+import 'package:dissonance_survey_4/main/main_page.dart';
+import 'package:dissonance_survey_4/main/model/question_model.dart';
 
 import '../getx/extension.dart';
 import '../getx/get_model.dart';

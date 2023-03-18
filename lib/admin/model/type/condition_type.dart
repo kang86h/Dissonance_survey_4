@@ -1,4 +1,4 @@
-import 'package:surveykit_example/admin/model/type/user_field_type.dart';
+import 'package:dissonance_survey_4/admin/model/type/user_field_type.dart';
 
 enum ConditionType {
   empty,

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:get/get.dart';
-import 'package:surveykit_example/main/main_page.dart';
+import 'package:dissonance_survey_4/main/main_page.dart';
 
 import 'main_page_controller.dart';
 import 'main_page_model.dart';

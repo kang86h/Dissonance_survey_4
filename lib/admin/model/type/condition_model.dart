@@ -1,6 +1,6 @@
-import 'package:surveykit_example/admin/model/type/condition_type.dart';
-import 'package:surveykit_example/admin/model/type/range_type.dart';
-import 'package:surveykit_example/getx/get_model.dart';
+import 'package:dissonance_survey_4/admin/model/type/condition_type.dart';
+import 'package:dissonance_survey_4/admin/model/type/range_type.dart';
+import 'package:dissonance_survey_4/getx/get_model.dart';
 
 class ConditionModel extends GetModel {
   ConditionModel({

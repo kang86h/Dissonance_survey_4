@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:surveykit_example/getx/extension.dart';
-import 'package:surveykit_example/main/main_page.dart';
-import 'package:surveykit_example/main/model/question_type.dart';
+import 'package:dissonance_survey_4/getx/extension.dart';
+import 'package:dissonance_survey_4/main/main_page.dart';
+import 'package:dissonance_survey_4/main/model/question_type.dart';
 
 import '../../survey_kit.dart';
 
