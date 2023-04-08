@@ -27,7 +27,7 @@ class MainPageBinding extends Bindings {
             (i) => QuestionModel.empty().copyWith(
               id: i + 1,
               file: '$name/$name-${i + 1}.mp3',
-              score: 56 / 2,
+              score: 54 / 2,
               maxSliderScore: 56,
               maxTextScore: 1000,
               isRecord: true,

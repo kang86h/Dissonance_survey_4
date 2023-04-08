@@ -10,7 +10,7 @@ enum QuestionType {
 extension QuestionTypeEx on QuestionType {
   String get title =>
       {
-        QuestionType.hs4q2: '2음화음(최대56점)',
+        QuestionType.hs4q2: '2음화음(최대54점)',
         QuestionType.hs4q3: '3음화음(최대97점)',
         QuestionType.hs4q4: '4음화음(최대137점)',
       }[this] ??

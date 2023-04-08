@@ -189,7 +189,7 @@ class MainPage extends GetView<MainPageController> {
           '3. 점수는 숫자로 기입하시거나\n'
           '슬라이더에서 위치를 조절하셔서 매기세요.\n\n'
           '4. 화음에 사용된 음의 갯수에따라 최고점이 다릅니다.\n'
-          '   2음화음 최대 56점\n'
+          '   2음화음 최대 54점\n'
           '   3음화음 최대 97점\n'
           '   4음화음 최대 137점\n',
       buttonText: '시작',
