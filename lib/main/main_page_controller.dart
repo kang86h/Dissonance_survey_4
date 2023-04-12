@@ -49,7 +49,9 @@ class MainPageController extends GetController<MainPageModel> {
 
   late final Rx<VideoStatus> videoStatus = VideoStatus.empty.obs;
   late final Rx<PlayerState> playerState = PlayerState.stopped.obs
-    ..bindStream(audioPlayer.onPlayerStateChanged);
+    ..bindStream(audioPlayer.onPlayerStateChanged.delayWhen((x) {
+      return rx.Rx.timer(x, Duration(seconds: [PlayerState.stopped, PlayerState.completed].contains(x) ? 1 : 0));
+    }));
   final Rx<double> volume = 1.0.obs;
   final Rx<QuestionType> questionType = QuestionType.none.obs;
   final Rx<int> index = 0.obs;
