@@ -32,7 +32,7 @@ class MainPage extends GetView<MainPageController> {
   static int q3WarmIndex = -1;
   static int q4WarmIndex = -1;
 
-  static List<int> q2WarmUpCheckId = [2, 6]..shuffle();
+  static List<int> q2WarmUpCheckId = [2, 7]..shuffle();
   static List<int> q3WarmUpCheckId = [1, 2, 6]
     ..shuffle(); //협화한걸 고르라 했으면 [1,5,6]
   static List<int> q4WarmUpCheckId = [1, 2, 3, 5]..shuffle();
