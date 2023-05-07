@@ -325,7 +325,8 @@ class MainPageController extends GetController<MainPageModel> {
       );
 
       //await Get.toNamed('/complete');
-      html.window.open('https://ko.research.net/r/JF2TNYL?uid=$uid', '_self');
+      //html.window.open('https://ko.research.net/r/JF2TNYL?uid=$uid', '_self');
+      html.window.open('https://www.google.com', '_self');
     } else {
       // 신뢰성 체크 실패 시
       final gender = surveyResult.results
@@ -394,7 +395,8 @@ class MainPageController extends GetController<MainPageModel> {
         },
       );
 
-      html.window.open('https://ko.research.net/r/JF8RP9B?uid=$uid', '_self');
+      //html.window.open('https://ko.research.net/r/JF8RP9B?uid=$uid', '_self');
+      html.window.open('https://www.google.com', '_self');
     }
   }
 
