@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-import 'package:cp949/cp949.dart';
+import 'package:cp949_codec/cp949_codec.dart';
 import 'package:csv/csv.dart';
 import 'package:download/download.dart';
 import 'package:dissonance_survey_4/admin/admin_page_model.dart';
@@ -289,7 +289,7 @@ class AdminPageController extends GetController<AdminPageModel> {
       }),
     ];
     final csv = ListToCsvConverter().convert(rows);
-    final stream = Stream.fromIterable(encode(csv));
+    final stream = Stream.fromIterable(cp949.encode(csv));
     download(stream, 'user_${DateTime.now().toIso8601String()}.csv');
   }
 
@@ -370,7 +370,7 @@ class AdminPageController extends GetController<AdminPageModel> {
             ]),
       ];
       final csv = ListToCsvConverter().convert(rows);
-      final stream = Stream.fromIterable(encode(csv));
+      final stream = Stream.fromIterable(cp949.encode(csv));
       download(stream, '${tab.name}_${DateTime.now().toIso8601String()}.csv');
     });
 
@@ -419,7 +419,7 @@ class AdminPageController extends GetController<AdminPageModel> {
       }),
     ];
     final csv = ListToCsvConverter().convert(rows);
-    final stream = Stream.fromIterable(encode(csv));
+    final stream = Stream.fromIterable(cp949.encode(csv));
     download(stream, 'suitability_${DateTime.now().toIso8601String()}.csv');
   }
 
